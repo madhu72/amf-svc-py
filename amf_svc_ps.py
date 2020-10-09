@@ -27,7 +27,7 @@ class ps(amfservice):
     """ IBM Sterling File Gateway Perimiter Server Components
     This service controls all local PS components """
 
-    #Add your PS installation paths relative from $AMF_PS_HOME if there are more than one PS installations on the same server
+    #Add your PS installation paths relative from $AMF_PS_HOME
     psfolders = []
     def __init__(self, svc, home):
         amfservice.__init__(self, svc, home)

@@ -70,15 +70,15 @@ class ssp(amfservice):
         clist.append("%-20s%-12s%-10s" % ('PID FILE', 'PID', 'RUNNING'))
         clist.append('------------------------------------------')
         self.run("ps -ef | grep -v grep | grep SSPPlatformFactory| cut -c1-30", printflag=False)
+        time.sleep(3)
         line = self.outbuf
         pid = 'unknown'
         for line in self.outbuf:
             vals = line.split()
             if len(vals) > 1:
-                if vals[0] == 'admin':
-                    found = True
-                    pid = vals[1]
-                    break
+                found = True
+                pid = vals[1]
+                break
         clist.append("%-20s%-12s%-10s" % ('NA', pid, found))
         self.printer.info(clist)
         if found:
